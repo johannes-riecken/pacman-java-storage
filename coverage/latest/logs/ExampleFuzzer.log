@@ -1,24 +1,38 @@
-INFO: libFuzzer ignores flags that start with '--'
-INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 1911094049
-MERGE-OUTER: 244 files, 0 in the initial corpus, 0 processed earlier
-MERGE-OUTER: attempt 1
-INFO: libFuzzer ignores flags that start with '--'
-INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 1762555301
-INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
-MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge72.txt'
-MERGE-INNER: 244 total files; 0 processed earlier; will process 244 files now
-#1	pulse  exec/s: 0 rss: 72Mb
-#2	pulse  exec/s: 0 rss: 84Mb
-#4	pulse  exec/s: 0 rss: 84Mb
-#8	pulse  exec/s: 0 rss: 84Mb
-#16	pulse  exec/s: 0 rss: 87Mb
-#32	pulse  exec/s: 0 rss: 89Mb
-#64	pulse  exec/s: 0 rss: 100Mb
-#128	pulse  exec/s: 0 rss: 112Mb
-#244	DONE   exec/s: 244 rss: 200Mb
-MERGE-OUTER: succesfull in 1 attempt(s)
-MERGE-OUTER: the control file has 28353 bytes
-MERGE-OUTER: consumed 0Mb (77Mb rss) to parse the control file
-MERGE-OUTER: 0 new files with 0 new features added; 0 new coverage edges
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting ExampleFuzzer.
+	at org.jacoco.agent.rt.internal_3570298.CoverageTransformer.transform(CoverageTransformer.java:94)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:246)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:563)
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:151)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:825)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:723)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:646)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:604)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+Caused by: java.io.IOException: Error while instrumenting ExampleFuzzer.
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrumentError(Instrumenter.java:160)
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrument(Instrumenter.java:110)
+	at org.jacoco.agent.rt.internal_3570298.CoverageTransformer.transform(CoverageTransformer.java:92)
+	... 12 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 62
+	at org.jacoco.agent.rt.internal_3570298.asm.ClassReader.<init>(ClassReader.java:196)
+	at org.jacoco.agent.rt.internal_3570298.asm.ClassReader.<init>(ClassReader.java:177)
+	at org.jacoco.agent.rt.internal_3570298.asm.ClassReader.<init>(ClassReader.java:163)
+	at org.jacoco.agent.rt.internal_3570298.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:280)
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrument(Instrumenter.java:76)
+	at org.jacoco.agent.rt.internal_3570298.core.instr.Instrumenter.instrument(Instrumenter.java:108)
+	... 13 more
+Exception in thread "main" java.lang.UnsupportedClassVersionError: ExampleFuzzer has been compiled by a more recent version of the Java Runtime (class file version 62.0), this version of the Java Runtime only recognizes class file versions up to 59.0
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1016)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:151)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:825)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:723)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:646)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:604)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:168)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+ERROR: Could not find class ExampleFuzzer
